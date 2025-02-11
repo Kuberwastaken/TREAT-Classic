@@ -80,6 +80,7 @@ To set up the development environment, you will need to create a virtual environ
 
 ## How TREAT Works
 
+```mermaid
 graph TD
     A["📤 User Uploads Script"] --> B{"Script Analysis"}
     B -->|Start| C["📑 Preprocess Text"]
@@ -138,6 +139,7 @@ graph TD
     class F,G,H,Q data
     class I model
     class O,S,T result
+```
 
 ## File Descriptions
 - **app.py:** The main Flask application file that handles routing.
