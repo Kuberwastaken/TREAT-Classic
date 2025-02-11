@@ -114,31 +114,21 @@ graph TD
     Q --> S["📩 User Receives"]
     S --> T["Detected Triggers, Confidence Levels,<br/>Timestamps, Hardware Used, Chunk Metadata"]
 
-    classDef green fill:#4CAF50,stroke:#388E3C
-    classDef blue fill:#2196F3,stroke:#1976D2
-    classDef grey fill:#607D8B,stroke:#455A64
-    classDef purple fill:#9C27B0,stroke:#7B1FA2
-    classDef orange fill:#FF9800,stroke:#F57C00
-    classDef teal fill:#009688,stroke:#00796B
-    classDef brown fill:#795548,stroke:#5D4037
-    classDef process fill:#E3F2FD,stroke:#90CAF9,stroke-width:2px
-    classDef decision fill:#FFF8E1,stroke:#FFE082
-    classDef data fill:#F0F4C3,stroke:#DCE775
-    classDef model fill:#E1BEE7,stroke:#BA68C8
-    classDef result fill:#C8E6C9,stroke:#81C784
+    classDef default fill:#f9f9f9,stroke:#666,stroke-width:1px,color:#333
+    classDef upload fill:#e3f2fd,stroke:#90caf9,stroke-width:2px,color:#333
+    classDef process fill:#f3e5f5,stroke:#ce93d8,stroke-width:2px,color:#333
+    classDef decision fill:#fff3e0,stroke:#ffb74d,stroke-width:2px,color:#333
+    classDef data fill:#e8f5e9,stroke:#81c784,stroke-width:2px,color:#333
+    classDef model fill:#4a148c,stroke:#7c43bd,stroke-width:2px,color:#fff
+    classDef result fill:#1a237e,stroke:#3949ab,stroke-width:2px,color:#fff
 
-    class A green
-    class B blue
-    class E grey
-    class I purple
-    class O orange
-    class Q teal
-    class T brown
-    class C,E,D process
-    class J,P decision
+    class A upload
+    class B,P decision
+    class C,D,E process
     class F,G,H,Q data
     class I model
-    class O,S,T result
+    class J decision
+    class K,L,M,N,O,S,T result
 ```
 
 ## File Descriptions
