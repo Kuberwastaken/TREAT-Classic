@@ -80,60 +80,64 @@ To set up the development environment, you will need to create a virtual environ
 
 ## How TREAT Works
 
-```mermaid
 graph TD
-    A[📤 User Uploads Script] --> B{Script Analysis}
-    B -->|Start| C[📑 Preprocess Text]
+    A["📤 User Uploads Script"] --> B{"Script Analysis"}
+    B -->|Start| C["📑 Preprocess Text"]
     C --> D["Chunk Size: 1000, Overlap: 20"]
-    D --> E[[Document Chunker]]
+    D --> E["Document Chunker"]
     E --> F["Chunk 1 - [0-1000 chars]"]
     E --> G["Chunk 2 - [980-1980 chars]"]
-    E --> H[... ...]
-    
+    E --> H["... ..."]
+
     subgraph "AI Processing Pipeline"
-        F --> I[🤖 FLAN-T5-Large Model]
+        F --> I["🤖 FLAN-T5-Large Model"]
         G --> I
         H --> I
-        I -->|Batch Processing| J{Trigger Analysis}
-        J -->|Violence| K[🔴 High Confidence]
-        J -->|Sexual Content| L[🟠 Medium Confidence]
-        J -->|Mental Health| M[🟡 Low Confidence]
-        J -->|Other Categories| N[⚪ Neutral]
+        I -->|Batch Processing| J{"Trigger Analysis"}
+        J -->|Violence| K["🔴 High Confidence"]
+        J -->|Sexual Content| L["🟠 Medium Confidence"]
+        J -->|Mental Health| M["🟡 Low Confidence"]
+        J -->|Other Categories| N["⚪ Neutral"]
     end
 
     subgraph "Result Compilation"
-        K --> O[📊 Confidence Threshold >0.6]
+        K --> O["📊 Confidence Threshold >0.6"]
         L --> O
         M --> O
         N --> O
-        O --> P{Generate Report?}
-        P -->|Yes| Q[📄 JSON Report]
-        P -->|No| R[🔄 Reprocess]
+        O --> P{"Generate Report?"}
+        P -->|Yes| Q["📄 JSON Report"]
+        P -->|No| R["🔄 Reprocess"]
     end
 
-    Q --> S[📩 User Receives]
-    S --> T{{Detected Triggers, Confidence Levels, Timestamps, Hardware Used, Chunk Metadata"}}
+    Q --> S["📩 User Receives"]
+    S --> T["Detected Triggers, Confidence Levels,<br/>Timestamps, Hardware Used, Chunk Metadata"]
 
-    style A fill:#4CAF50,stroke:#388E3C
-    style B fill:#2196F3,stroke:#1976D2
-    style E fill:#607D8B,stroke:#455A64
-    style I fill:#9C27B0,stroke:#7B1FA2
-    style O fill:#FF9800,stroke:#F57C00
-    style Q fill:#009688,stroke:#00796B
-    style T fill:#795548,stroke:#5D4037
-    
+    classDef green fill:#4CAF50,stroke:#388E3C
+    classDef blue fill:#2196F3,stroke:#1976D2
+    classDef grey fill:#607D8B,stroke:#455A64
+    classDef purple fill:#9C27B0,stroke:#7B1FA2
+    classDef orange fill:#FF9800,stroke:#F57C00
+    classDef teal fill:#009688,stroke:#00796B
+    classDef brown fill:#795548,stroke:#5D4037
     classDef process fill:#E3F2FD,stroke:#90CAF9,stroke-width:2px
     classDef decision fill:#FFF8E1,stroke:#FFE082
     classDef data fill:#F0F4C3,stroke:#DCE775
     classDef model fill:#E1BEE7,stroke:#BA68C8
     classDef result fill:#C8E6C9,stroke:#81C784
-    
+
+    class A green
+    class B blue
+    class E grey
+    class I purple
+    class O orange
+    class Q teal
+    class T brown
     class C,E,D process
     class J,P decision
     class F,G,H,Q data
     class I model
     class O,S,T result
-```
 
 ## File Descriptions
 - **app.py:** The main Flask application file that handles routing.
